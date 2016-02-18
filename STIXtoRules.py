@@ -5,6 +5,11 @@
 # python-stix
 from stix.core import STIXPackage
 
+# virus-total api
+import simplejson
+import urllib
+import urllib2
+
 def main():
 
 	# Parse input file
@@ -16,7 +21,7 @@ def main():
 	indicator_dict = stix_dict['indicators']
 	
 	# test
-	createIPFW(indicator_dict)	
+	createSNORT(indicator_dict)	
 	
 # ~~~~~~~~~~~~~~~~~~~~~~~~~ XML TO LISTS METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -55,10 +60,33 @@ def getTCPSYN(indicator_dict):
 # ~~~~~~~~~~~~~~~~~~~~~~~~~ CREATE RULES METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def createSNORT(indicator_dict):
+	# rule actions - alert, log, drop, reject
+	# action protocol ip port -> ip port 
+	snortrules_file = open('SNORTRules.txt','w')
+	sid = 234500
+	# uri rules
+	#for i in urilist:
+	#	checkReputation(i)
 	urilist = getURIs(indicator_dict)
-	domainlist = getDomains(indicator_dict)	
+	for uri in urilist:
+		snortrules_file.write('alert tcp $HOME_NET any -> any 80 (msg:"Malicious HTTP GET request"; content:"'+uri+'"; http_uri; nocase; sid:'+str(sid)+';)')
+		sid = sid + 1
+		snortrules_file.write("\n")
+	# domain name rules
+	domainlist = getDomains(indicator_dict)
+	for domain in domainlist:
+		snortrules_file.write('alert udp $HOME_NET any -> any 53 (msg:"Suspicious domain name request"; content:"'+domain+'"; sid:'+str(sid)+';)')
+		snortrules_file.write("\n")
 	iplist = getIPAddress(indicator_dict)
+	# ip address rules
+	for ip in iplist:
+		snortrules_file.write("alert ip $HOME_NET any -> "+ip+' any (msg:"Suspicious IP address seen"; logto:"RulesFromSTIX.log"; sid:'+str(sid)+';)')
+		snortrules_file.write("\n")
 	tcplist = getTCPSYN(indicator_dict)
+	#tcp syn rules
+	for tcp_tuple in tcplist:
+		snortrules_file.write("alert tcp $HOME_NET "+str(tcp_tuple[0])+" -> "+tcp_tuple[2]+" "+str(tcp_tuple[1])+' (msg:"Suspicious TCP connection"; classtype:tcp-connection; sid:'+str(sid)+';)')
+		snortrules_file.write("\n")
 
 def createIPFW(indicator_dict):
 	rule_number = 0
@@ -88,8 +116,15 @@ def IPAddressStringMaker(iplist):
 	for ip in range(0, len(iplist)-2):
 			ip_string = ip_string+iplist[ip]+" or "
 	ip_string = ip_string+iplist[ip-1]
-	return ip_string	
+	return ip_string
 
+def checkReputation(uri):
+	url = "https://www.virustotal.com/vtapi/v2/url/scan"
+	parameters = {"url": uri, "apikey": "6297278ce14f21b1b77ecef1014fe2023d80ac7919d1477445a83c2614f345dc"}			
+	data = urllib.urlencode(parameters)
+	req = urllib2.Request(url, data)
+	response = urllib2.urlopen(req)	
+	print response.read()
 
 if __name__ == '__main__':
     main()
