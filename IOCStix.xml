@@ -1,0 +1,234 @@
+<stix:STIX_Package 
+	xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+	xmlns:DomainNameObj="http://cybox.mitre.org/objects#DomainNameObject-1"
+	xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2"
+	xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
+	xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
+	xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2"
+	xmlns:cybox="http://cybox.mitre.org/cybox-2"
+	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+	xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+	xmlns:example="http://example.com"
+	xmlns:indicator="http://stix.mitre.org/Indicator-2"
+	xmlns:report="http://stix.mitre.org/Report-1"
+	xmlns:stix="http://stix.mitre.org/stix-1"
+	xmlns:stixCommon="http://stix.mitre.org/common-1"
+	xmlns:stixVocabs="http://stix.mitre.org/default_vocabularies-1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="example:Package-a2e81ebe-ad53-4be8-80f0-10468563900f" version="1.2">
+    <stix:Indicators>
+        <stix:Indicator id="example:indicator-ee9ae830-345d-4d53-8e17-4463d97bc283" timestamp="2016-02-13T11:42:00.605532+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>Suspicious IP address</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious IPv4 address</indicator:Description>
+            <indicator:Observable id="example:Observable-da6762b2-048a-4e8a-826d-27688695cd98">
+                <cybox:Object id="example:Address-ff369685-822a-44cf-bd24-386cdfe2ad60">
+                    <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
+                        <AddressObj:Address_Value>95.211.80.4</AddressObj:Address_Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.606219+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-75c08bc8-23a1-4bfe-8dd0-f541f114f904" timestamp="2016-02-13T11:42:00.609137+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>Suspicious IP address</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious IPv4 address</indicator:Description>
+            <indicator:Observable id="example:Observable-f8156e9e-fe3b-4e0f-a229-620d73992ec6">
+                <cybox:Object id="example:Address-0121c3cf-08c7-41dc-b41c-3456a6f11ed1">
+                    <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
+                        <AddressObj:Address_Value>95.211.144.65</AddressObj:Address_Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.609578+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-c91d49d5-4468-4a4c-85ad-4a317c8b8db9" timestamp="2016-02-13T11:42:00.612175+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>Suspicious IP address</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious IPv4 address</indicator:Description>
+            <indicator:Observable id="example:Observable-ad7609bb-9353-4646-ae54-f4f527a5fb56">
+                <cybox:Object id="example:Address-997b3023-a341-4d88-b927-01f9e043d7c4">
+                    <cybox:Properties xsi:type="AddressObj:AddressObjectType" category="ipv4-addr">
+                        <AddressObj:Address_Value>95.211.144.67</AddressObj:Address_Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.612618+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-cc8fd578-0892-4d1c-b54a-e0fec371fe3c" timestamp="2016-02-13T11:42:00.615505+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP SYN connection</indicator:Title>
+            <indicator:Description>An indicator containing information about a TCP connection</indicator:Description>
+            <indicator:Observable id="example:Observable-32ab3b3f-db32-4136-b39c-be1d2ee24f41">
+                <cybox:Object id="example:NetworkConnection-f4f8bba5-c5c7-4ec1-a8e9-724b2e44a1cf">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Source_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>49422</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Source_Socket_Address>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>95.211.80.4</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.615926+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-7dfe7721-141c-4d01-aeb7-077f94187842" timestamp="2016-02-13T11:42:00.619051+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP SYN connection</indicator:Title>
+            <indicator:Description>An indicator containing information about a TCP connection</indicator:Description>
+            <indicator:Observable id="example:Observable-3259c4fd-c006-4ea7-ae07-0eb6508f4e66">
+                <cybox:Object id="example:NetworkConnection-3c470dfe-3c1c-457c-b7dd-98b8ebce875e">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Source_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>49426</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Source_Socket_Address>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>104.69.118.216</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>443</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.619485+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-abf0af61-d113-41bb-a06f-49c1a316a020" timestamp="2016-02-13T11:42:00.622286+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP SYN connection</indicator:Title>
+            <indicator:Description>An indicator containing information about a TCP connection</indicator:Description>
+            <indicator:Observable id="example:Observable-ed5a1b13-e2c0-401a-a91f-95e7db7d0662">
+                <cybox:Object id="example:NetworkConnection-bc854746-809a-41fc-a117-1fa7f59d5a1b">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Source_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>49458</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Source_Socket_Address>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>196.24.45.74</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.622710+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-d0afef3d-dafe-4ff7-803a-15087dec1a8a" timestamp="2016-02-13T11:42:00.625379+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>URI</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious URI</indicator:Description>
+            <indicator:Observable id="example:Observable-122c78bf-9a12-4a60-a211-46bd4e53385a">
+                <cybox:Object id="example:URI-0fd08457-5472-480b-814d-e1c3ffc450e5">
+                    <cybox:Properties xsi:type="URIObj:URIObjectType">
+                        <URIObj:Value>http://ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?915c4747f324cefc</URIObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.625798+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-8fa64b43-0d9d-4f58-b16e-3d9a861bc20b" timestamp="2016-02-13T11:42:00.628132+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>URI</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious URI</indicator:Description>
+            <indicator:Observable id="example:Observable-610840a0-29f5-420b-bb64-bae46f2b53fa">
+                <cybox:Object id="example:URI-a4ee1698-1aa7-4877-8144-773eb8be65ea">
+                    <cybox:Properties xsi:type="URIObj:URIObjectType">
+                        <URIObj:Value>http://ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/en/authrootstl.cab?8cb2fea89e283767</URIObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.628519+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-0f8bafdb-3df4-4cdc-bce3-7ed6c32559f0" timestamp="2016-02-13T11:42:00.631084+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>Domain name</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious domain name</indicator:Description>
+            <indicator:Observable id="example:Observable-d3f61535-280f-4107-a2ee-b17c8d05938a">
+                <cybox:Object id="example:DomainName-fb662b09-34bd-4187-b97d-57d5eb4a0e9b">
+                    <cybox:Properties xsi:type="DomainNameObj:DomainNameObjectType">
+                        <DomainNameObj:Value>nissyre.cba.pl</DomainNameObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-02-13T11:42:00.631463+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+    </stix:Indicators>
+    <stix:Reports>
+        <stix:Report timestamp="2016-02-13T11:42:00.604254+00:00" id="example:Report-143712df-aa83-4821-a9f2-58817c8b27ce" xsi:type='report:ReportType' version="1.0">
+            <report:Header>
+                <report:Title>A bunch of related indicators</report:Title>
+                <report:Short_Description>A short description for the indicators oooooh!</report:Short_Description>
+                <report:Information_Source>
+                    <stixCommon:Description>From Cuckoo sandbox IOC_STIX reporting module</stixCommon:Description>
+                </report:Information_Source>
+            </report:Header>
+            <report:Indicators>
+                <report:Indicator idref="example:indicator-4da4511a-e00d-4eb1-acb3-f7b9e611a25c" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-634854b3-6da7-48a1-9232-c0bb8aa330d0" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-8aba4ca8-d429-498e-ae49-f60994344bfb" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-83f506ed-d0ba-444e-b12f-e9501bbb9088" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-fef6f766-6ab4-45fa-bad5-94808cd9c3e3" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-6ffc23a2-6016-448d-9f73-a198fe078521" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-1f5cab43-953b-49a7-8573-a28bfd0799d3" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-e7e20e13-c039-4693-95d9-9c88c1cfe229" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-e464812b-845e-43a8-b99f-620e8a8537a9" xsi:type='indicator:IndicatorType'/>
+            </report:Indicators>
+        </stix:Report>
+    </stix:Reports>
+</stix:STIX_Package>

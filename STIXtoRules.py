@@ -15,7 +15,7 @@ import urllib2
 def main():
 
 	# Parse input file
-	stix_package = STIXPackage.from_xml('IOCStix.xml')
+	stix_package = STIXPackage.from_xml('f6b2a337699316b6c031c24a6f1ed6b8.xml')
 
 	# Convert STIXPackage to a Python dictionary via the to_dict() method.
 	stix_dict = stix_package.to_dict()
@@ -24,6 +24,14 @@ def main():
 	
 	# test
 	createIPTABLES(indicator_dict)	
+	createSNORT(indicator_dict)
+	createIPFW(indicator_dict)
+	getDNSQuery(indicator_dict)
+	getHTTPRequest(indicator_dict)
+	getUDPPacket(indicator_dict)
+	getSSHPacket(indicator_dict)
+	getFTPPacket(indicator_dict)
+	
 	
 # ~~~~~~~~~~~~~~~~~~~~~~~~~ XML TO LISTS METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -55,9 +63,91 @@ def getTCPSYN(indicator_dict):
 	tcplist = []
 	for observable_dict in indicator_dict:
 		if observable_dict['observable']['object']['properties']['xsi:type'] == 'NetworkConnectionObjectType':
-			tcplist.append((observable_dict['observable']['object']['properties']['source_socket_address']['port']['port_value'],observable_dict['observable']['object']['properties']['destination_socket_address']['port']['port_value'],observable_dict['observable']['object']['properties']['destination_socket_address']['ip_address']['address_value']))			
+			if observable_dict['observable']['object']['properties']['layer4_protocol'] == 'TCP':
+				tcplist.append((observable_dict['observable']['object']['properties']['source_socket_address']['port']['port_value'],observable_dict['observable']['object']['properties']['destination_socket_address']['port']['port_value'],observable_dict['observable']['object']['properties']['destination_socket_address']['ip_address']['address_value']))			
 	print tcplist
 	return tcplist
+
+def getDNSQuery(indicator_dict):
+	dnslist = []
+	for observable_dict in indicator_dict:
+		if observable_dict['observable']['object']['properties']['xsi:type'] == 'NetworkConnectionObjectType':
+			try:
+				if observable_dict['observable']['object']['properties']['layer7_protocol'] == "DNS":			
+					print "DNS"
+					destination_port = observable_dict['observable']['object']['properties']['destination_socket_address']['port']['port_value']
+					uri = observable_dict['observable']['object']['properties']['layer7_connections']['dns_query']['question']['qname']['value']
+					dnslist.append((uri,destination_port))
+			except:
+				pass
+	return dnslist
+	
+
+def getHTTPRequest(indicator_dict):
+	httplist = []
+	for observable_dict in indicator_dict:		
+		if observable_dict['observable']['object']['properties']['xsi:type'] == 'HTTPSessionObjectType':
+			print observable_dict
+			method = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_line']['http_method']
+			uri = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_line']['value']
+			version = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_line']['version']
+			accept = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_header']['parsed_header']['accept']
+			connection = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_header']['parsed_header']['connection']
+			host = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_header']['parsed_header']['host']['domain_name']['value']
+			port = observable_dict['observable']['object']['properties']['http_request_response'][0]['http_client_request']['http_request_header']['parsed_header']['host']['port']['port_value']
+			httplist.append([method, uri, version, accept, connection, host, port])
+			print "HTTP"
+	return httplist
+
+def getUDPPacket(indicator_dict):
+	udplist = []
+	for observable_dict in indicator_dict:
+		if observable_dict['observable']['object']['properties']['xsi:type'] == 'NetworkConnectionObjectType':
+			if observable_dict['observable']['object']['properties']['layer4_protocol'] == 'UDP':
+				print "UDP"
+				try: # incoming
+					source_port = observable_dict['observable']['object']['properties']['source_socket_address']['port']['port_value']
+					source_address = observable_dict['observable']['object']['properties']['source_socket_address']['ip_address']['address_value']
+					udplist.append([source_address, source_port, 1])
+				except: # outgoing
+					destination_address = observable_dict['observable']['object']['properties']['destination_socket_address']['ip_address']['address_value']
+					destination_port = observable_dict['observable']['object']['properties']['destination_socket_address']['port']['port_value']
+					udplist.append([destination_address, destination_port, 0])
+	print udplist	
+	return udplist
+
+def getSSHPacket(indicator_dict):
+	sshlist = []
+	for observable_dict in indicator_dict:
+		if observable_dict['observable']['object']['properties']['xsi:type'] == 'NetworkConnectionObjectType':
+			try:
+				if observable_dict['observable']['object']['properties']['layer7_protocol'] == 'SSH':
+					print "UDP"
+					source_port = observable_dict['observable']['object']['properties']['source_socket_address']['port']['port_value']
+					destination_address = observable_dict['observable']['object']['properties']['destination_socket_address']['ip_address']['address_value']
+					destination_port = observable_dict['observable']['object']['properties']['destination_socket_address']['port']['port_value']
+					sshlist.append([source_port, destination_address, destination_port])
+			except:
+				pass
+	print sshlist
+	return sshlist
+
+def getFTPPacket(indicator_dict):
+	ftplist = []
+	for observable_dict in indicator_dict:
+		if observable_dict['observable']['object']['properties']['xsi:type'] == 'NetworkConnectionObjectType':
+			try:
+				if observable_dict['observable']['object']['properties']['layer7_protocol'] == 'FTP':
+					print "UDP"
+					source_port = observable_dict['observable']['object']['properties']['source_socket_address']['port']['port_value']
+					destination_address = observable_dict['observable']['object']['properties']['destination_socket_address']['ip_address']['address_value']
+					destination_port = observable_dict['observable']['object']['properties']['destination_socket_address']['port']['port_value']
+					ftplist.append([source_port, destination_address, destination_port])
+			except:
+				pass
+	print ftplist
+	return ftplist
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~ CREATE RULES METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -74,9 +164,9 @@ def createSNORT(indicator_dict):
 		snortrules_file.write('alert tcp $HOME_NET any -> any [80,8080] (msg:"Malicious HTTP GET request"; content:"'+uri+'"; http_uri; nocase; sid:'+str(sid)+';)\n')
 		sid = sid + 1
 	# domain name rules
-	domainlist = getDomains(indicator_dict)
+	domainlist = getDNSQuery(indicator_dict)
 	for domain in domainlist:
-		snortrules_file.write('alert udp $HOME_NET any -> any 53 (msg:"Suspicious domain name request"; content:"'+domain+'"; sid:'+str(sid)+';)\n')
+		snortrules_file.write('alert udp $HOME_NET any -> any 53 (msg:"Suspicious domain name request"; content:"'+domain[0]+'"; sid:'+str(sid)+';)\n')
 	iplist = getIPAddress(indicator_dict)
 	# ip address rules
 	for ip in iplist:
@@ -84,20 +174,21 @@ def createSNORT(indicator_dict):
 	tcplist = getTCPSYN(indicator_dict)
 	#tcp syn rules
 	for tcp_tuple in tcplist:
-		snortrules_file.write("alert tcp $HOME_NET "+str(tcp_tuple[0])+" -> "+tcp_tuple[2]+" "+str(tcp_tuple[1])+' (msg:"Suspicious TCP connection"; classtype:tcp-connection; sid:'+str(sid)+';)\n')
+		snortrules_file.write("alert tcp $HOME_NET any -> "+tcp_tuple[2]+" "+str(tcp_tuple[1])+' (msg:"Suspicious TCP connection"; classtype:tcp-connection; sid:'+str(sid)+';)\n')
 	snortrules_file.close()
 
 def createIPFW(indicator_dict):
-	rule_number = 0
+	rule_number = 1000
 	set_number = 30
 	ipfwrules_file = open('IPFWRules.txt','w')
 	# ip address rules
-	iplist = getIPAddress(indicator_dict)	
-	ipfwrules_file.write(str(rule_number)+" "+str(set_number)+" deny ip from any to {"+IPAddressStringMaker(iplist)+"}\n")
+	iplist = getIPAddress(indicator_dict)
+	if iplist != []:	
+		ipfwrules_file.write("add "+str(rule_number)+" "+str(set_number)+" deny ip from any to {"+IPAddressStringMaker(iplist)+"}\n")
 	# tcp syn rules
 	tcplist = getTCPSYN(indicator_dict)
 	for tcp_tuple in tcplist:
-		ipfwrules_file.write(str(rule_number)+" "+str(set_number)+" deny ip from any "+str(tcp_tuple[0])+" to "+tcp_tuple[2]+" "+str(tcp_tuple[1])+"\n")
+		ipfwrules_file.write("add "+str(rule_number)+" "+str(set_number)+" deny ip from any any to "+tcp_tuple[2]+" "+str(tcp_tuple[1])+"\n")
 	ipfwrules_file.close()
 
 def createIPTABLES(indicator_dict):
@@ -124,15 +215,17 @@ def createIPTABLES(indicator_dict):
 	# tcp syn rules
 	tcplist = getTCPSYN(indicator_dict)
 	for tcp_tuple in tcplist:
-		iptablesRules.write('iptables -A OUTPUT -j DROP -p tcp --syn --dport '+str(tcp_tuple[1])+' --sport '+str(tcp_tuple[0])+' -d '+str(tcp_tuple[2])+'\n')
+		iptablesRules.write('iptables -A OUTPUT -j DROP -p tcp --syn --dport '+str(tcp_tuple[1])+' -d '+str(tcp_tuple[2])+'\n')
 	iptablesRules.close()	
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~ UTILITY METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 def IPAddressStringMaker(iplist):
+	print 'iplist', iplist
 	ip_string = ""
 	for ip in range(0, len(iplist)-2):
 			ip_string = ip_string+iplist[ip]+" or "
+			print "ip: ", ip
 	ip_string = ip_string+iplist[ip-1]
 	return ip_string
 

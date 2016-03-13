@@ -1,0 +1,4 @@
+alert tcp $HOME_NET any -> any [80,8080] (msg:"Malicious HTTP GET request"; content:"/msdownload/update/v3/static/trustedr/en/authrootstl.cab?e3b9d33929611515"; http_uri; nocase; sid:234500;)
+alert tcp $HOME_NET any -> any [80,8080] (msg:"Malicious HTTP GET request"; content:"/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?edfd6d3985234807"; http_uri; nocase; sid:234501;)
+alert tcp $HOME_NET any -> 88.221.251.80 443 (msg:"Suspicious TCP connection"; classtype:tcp-connection; sid:234502;)
+alert tcp $HOME_NET any -> 196.24.45.72 80 (msg:"Suspicious TCP connection"; classtype:tcp-connection; sid:234502;)

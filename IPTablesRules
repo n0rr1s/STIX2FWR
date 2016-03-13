@@ -1,0 +1,4 @@
+iptables -A OUTPUT -j DROP -p tcp --dports 80,8080 --string "/msdownload/update/v3/static/trustedr/en/authrootstl.cab?e3b9d33929611515" --algo bm
+iptables -A OUTPUT -j DROP -p tcp --dports 80,8080 --string "/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?edfd6d3985234807" --algo bm
+iptables -A OUTPUT -j DROP -p tcp --syn --dport 443 -d 88.221.251.80
+iptables -A OUTPUT -j DROP -p tcp --syn --dport 80 -d 196.24.45.72

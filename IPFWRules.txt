@@ -1,0 +1,2 @@
+add 1000 30 deny ip from any any to 88.221.251.80 443
+add 1000 30 deny ip from any any to 196.24.45.72 80
