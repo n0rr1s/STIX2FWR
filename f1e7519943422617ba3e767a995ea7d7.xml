@@ -1,0 +1,466 @@
+<stix:STIX_Package 
+	xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+	xmlns:HTTPSessionObj="http://cybox.mitre.org/objects#HTTPSessionObject-2"
+	xmlns:NetworkConnectionObj="http://cybox.mitre.org/objects#NetworkConnectionObject-2"
+	xmlns:PortObj="http://cybox.mitre.org/objects#PortObject-2"
+	xmlns:SocketAddressObj="http://cybox.mitre.org/objects#SocketAddressObject-1"
+	xmlns:URIObj="http://cybox.mitre.org/objects#URIObject-2"
+	xmlns:cybox="http://cybox.mitre.org/cybox-2"
+	xmlns:cyboxCommon="http://cybox.mitre.org/common-2"
+	xmlns:cyboxVocabs="http://cybox.mitre.org/default_vocabularies-2"
+	xmlns:example="http://example.com"
+	xmlns:indicator="http://stix.mitre.org/Indicator-2"
+	xmlns:report="http://stix.mitre.org/Report-1"
+	xmlns:stix="http://stix.mitre.org/stix-1"
+	xmlns:stixCommon="http://stix.mitre.org/common-1"
+	xmlns:stixVocabs="http://stix.mitre.org/default_vocabularies-1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="example:Package-135597fe-1110-4db6-953b-22a4df1df589" version="1.2">
+    <stix:Indicators>
+        <stix:Indicator id="example:indicator-e400d631-da7c-49d8-a7ff-de174949cebc" timestamp="2016-03-15T14:10:51.205734+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP Connection Established</indicator:Title>
+            <indicator:Description>An indicator containing information about a successful TCP hand shake</indicator:Description>
+            <indicator:Observable id="example:Observable-d3f0372a-bf6d-4c7f-be33-ef6dc05104f9">
+                <cybox:Object id="example:NetworkConnection-1ee1ddd7-57b9-42ea-91af-e5c4e791b1b0">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>146.231.133.139</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>5000</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.206084+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-b1d0397e-b509-420b-a32f-a2de00fa3265" timestamp="2016-03-15T14:10:51.207808+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP Connection Established</indicator:Title>
+            <indicator:Description>An indicator containing information about a successful TCP hand shake</indicator:Description>
+            <indicator:Observable id="example:Observable-249699c1-60af-4ab9-9787-569f4e550797">
+                <cybox:Object id="example:NetworkConnection-ac9311df-5054-4f8c-943a-a881308c7f50">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>146.231.133.150</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>139</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.208030+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-4e16c092-4f78-4dc5-b916-954474123dfd" timestamp="2016-03-15T14:10:51.209531+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP Connection Established</indicator:Title>
+            <indicator:Description>An indicator containing information about a successful TCP hand shake</indicator:Description>
+            <indicator:Observable id="example:Observable-0e68d54c-a3e5-4f5f-8fc6-d8fddc0075c3">
+                <cybox:Object id="example:NetworkConnection-5a5678d9-e6eb-4660-a813-47c24332090f">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>146.231.133.150</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>139</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.209758+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-6cb95d24-ad47-4b0a-925a-a2abe7d29376" timestamp="2016-03-15T14:10:51.211730+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP Connection Established</indicator:Title>
+            <indicator:Description>An indicator containing information about a successful TCP hand shake</indicator:Description>
+            <indicator:Observable id="example:Observable-6ec0a5df-7665-4dd5-aaa0-70f1f9a03079">
+                <cybox:Object id="example:NetworkConnection-a7a83763-d3f0-471e-8212-d3279c92aaba">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>88.221.251.80</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>443</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.211947+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-27e2374f-6688-481e-b019-1a2950ac86b7" timestamp="2016-03-15T14:10:51.213423+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP Connection Established</indicator:Title>
+            <indicator:Description>An indicator containing information about a successful TCP hand shake</indicator:Description>
+            <indicator:Observable id="example:Observable-e81b33a1-2e74-4c26-bc50-fdbdd6f99da0">
+                <cybox:Object id="example:NetworkConnection-0c1aa871-50a4-475a-97bc-b17b55328209">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>88.221.251.80</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>443</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.213654+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-ab5fa990-2dcf-4c78-92ae-e62c73be4784" timestamp="2016-03-15T14:10:51.215157+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>TCP Connection Established</indicator:Title>
+            <indicator:Description>An indicator containing information about a successful TCP hand shake</indicator:Description>
+            <indicator:Observable id="example:Observable-4326cfd3-1ea7-4b20-af33-8221a608337a">
+                <cybox:Object id="example:NetworkConnection-a21a672f-735a-4e98-923f-f8efa5f957af">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>TCP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Destination_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>196.24.45.72</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>TCP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Destination_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.215376+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-b141911c-cbaf-4259-98b5-bac7525e0dd3" timestamp="2016-03-15T14:10:51.216820+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>URI</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious URI</indicator:Description>
+            <indicator:Observable id="example:Observable-44f3b638-a79e-4c50-993f-5ba269021922">
+                <cybox:Object id="example:URI-ca79ab4f-0b1c-4de1-bd2a-75e688c8bd08">
+                    <cybox:Properties xsi:type="URIObj:URIObjectType">
+                        <URIObj:Value>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?75136e547adf3ccf</URIObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.217038+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-52cf2753-7a44-42a8-81f7-df6454d03187" timestamp="2016-03-15T14:10:51.218289+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>URI</indicator:Title>
+            <indicator:Description>An indicator containing a suspicious URI</indicator:Description>
+            <indicator:Observable id="example:Observable-f9fdc28e-af60-4410-abfa-0c343ddb8e7c">
+                <cybox:Object id="example:URI-c7ee7946-4306-4ce0-8d5f-6e354d74af0e">
+                    <cybox:Properties xsi:type="URIObj:URIObjectType">
+                        <URIObj:Value>/msdownload/update/v3/static/trustedr/en/authrootstl.cab?5c7222b03ed7049f</URIObj:Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.218647+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-3c5b232a-b609-4a0d-898c-c03bd8dbab46" timestamp="2016-03-15T14:10:51.220160+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>HTTP request</indicator:Title>
+            <indicator:Description>An indicator containing information about a HTTP request</indicator:Description>
+            <indicator:Observable id="example:Observable-c1455e2d-625e-4760-b3ca-d39ff427e477">
+                <cybox:Object id="example:HTTPSession-e459f44d-27fd-462c-a698-33600f775165">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method>GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?75136e547adf3ccf</HTTPSessionObj:Value>
+                                    <HTTPSessionObj:Version>HTTP/1.1</HTTPSessionObj:Version>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                                <HTTPSessionObj:HTTP_Request_Header>
+                                    <HTTPSessionObj:Parsed_Header>
+                                        <HTTPSessionObj:Accept>*/*</HTTPSessionObj:Accept>
+                                        <HTTPSessionObj:Connection>Keep-Alive</HTTPSessionObj:Connection>
+                                        <HTTPSessionObj:Host>
+                                            <HTTPSessionObj:Domain_Name xsi:type="URIObj:URIObjectType">
+                                                <URIObj:Value/>
+                                            </HTTPSessionObj:Domain_Name>
+                                            <HTTPSessionObj:Port xsi:type="PortObj:PortObjectType">
+                                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                            </HTTPSessionObj:Port>
+                                        </HTTPSessionObj:Host>
+                                    </HTTPSessionObj:Parsed_Header>
+                                </HTTPSessionObj:HTTP_Request_Header>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.220389+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-04d02063-0f10-470b-b7ba-b9a4cf12821d" timestamp="2016-03-15T14:10:51.222044+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>HTTP request</indicator:Title>
+            <indicator:Description>An indicator containing information about a HTTP request</indicator:Description>
+            <indicator:Observable id="example:Observable-2c35b66c-bcf1-47c9-a829-144b00f40a0f">
+                <cybox:Object id="example:HTTPSession-acc0dede-bc11-40b6-886f-618fb14828a0">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method>GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value>/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab?75136e547adf3ccf</HTTPSessionObj:Value>
+                                    <HTTPSessionObj:Version>HTTP/1.1</HTTPSessionObj:Version>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                                <HTTPSessionObj:HTTP_Request_Header>
+                                    <HTTPSessionObj:Parsed_Header>
+                                        <HTTPSessionObj:Accept>*/*</HTTPSessionObj:Accept>
+                                        <HTTPSessionObj:Connection>Keep-Alive</HTTPSessionObj:Connection>
+                                        <HTTPSessionObj:Host>
+                                            <HTTPSessionObj:Domain_Name xsi:type="URIObj:URIObjectType">
+                                                <URIObj:Value/>
+                                            </HTTPSessionObj:Domain_Name>
+                                            <HTTPSessionObj:Port xsi:type="PortObj:PortObjectType">
+                                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                            </HTTPSessionObj:Port>
+                                        </HTTPSessionObj:Host>
+                                    </HTTPSessionObj:Parsed_Header>
+                                </HTTPSessionObj:HTTP_Request_Header>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.222275+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-6c113c78-0e8b-4e09-bd19-56190434559f" timestamp="2016-03-15T14:10:51.223925+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>HTTP request</indicator:Title>
+            <indicator:Description>An indicator containing information about a HTTP request</indicator:Description>
+            <indicator:Observable id="example:Observable-5af07684-c92f-4fa6-9187-d2c07e624b7b">
+                <cybox:Object id="example:HTTPSession-bbbc98ab-c6d5-4631-8ad6-ed7c99c57f9a">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method>GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value>/msdownload/update/v3/static/trustedr/en/authrootstl.cab?5c7222b03ed7049f</HTTPSessionObj:Value>
+                                    <HTTPSessionObj:Version>HTTP/1.1</HTTPSessionObj:Version>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                                <HTTPSessionObj:HTTP_Request_Header>
+                                    <HTTPSessionObj:Parsed_Header>
+                                        <HTTPSessionObj:Accept>*/*</HTTPSessionObj:Accept>
+                                        <HTTPSessionObj:Connection>Keep-Alive</HTTPSessionObj:Connection>
+                                        <HTTPSessionObj:Host>
+                                            <HTTPSessionObj:Domain_Name xsi:type="URIObj:URIObjectType">
+                                                <URIObj:Value/>
+                                            </HTTPSessionObj:Domain_Name>
+                                            <HTTPSessionObj:Port xsi:type="PortObj:PortObjectType">
+                                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                            </HTTPSessionObj:Port>
+                                        </HTTPSessionObj:Host>
+                                    </HTTPSessionObj:Parsed_Header>
+                                </HTTPSessionObj:HTTP_Request_Header>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.224178+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-562ebbed-e5ae-4b43-b2b5-66d3016dd438" timestamp="2016-03-15T14:10:51.225931+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>HTTP request</indicator:Title>
+            <indicator:Description>An indicator containing information about a HTTP request</indicator:Description>
+            <indicator:Observable id="example:Observable-7f420193-33fa-4d00-b15d-22293dde3935">
+                <cybox:Object id="example:HTTPSession-75c33268-2736-4839-8534-16ad7300ef2c">
+                    <cybox:Properties xsi:type="HTTPSessionObj:HTTPSessionObjectType">
+                        <HTTPSessionObj:HTTP_Request_Response>
+                            <HTTPSessionObj:HTTP_Client_Request>
+                                <HTTPSessionObj:HTTP_Request_Line>
+                                    <HTTPSessionObj:HTTP_Method>GET</HTTPSessionObj:HTTP_Method>
+                                    <HTTPSessionObj:Value>/msdownload/update/v3/static/trustedr/en/authrootstl.cab?5c7222b03ed7049f</HTTPSessionObj:Value>
+                                    <HTTPSessionObj:Version>HTTP/1.1</HTTPSessionObj:Version>
+                                </HTTPSessionObj:HTTP_Request_Line>
+                                <HTTPSessionObj:HTTP_Request_Header>
+                                    <HTTPSessionObj:Parsed_Header>
+                                        <HTTPSessionObj:Accept>*/*</HTTPSessionObj:Accept>
+                                        <HTTPSessionObj:Connection>Keep-Alive</HTTPSessionObj:Connection>
+                                        <HTTPSessionObj:Host>
+                                            <HTTPSessionObj:Domain_Name xsi:type="URIObj:URIObjectType">
+                                                <URIObj:Value/>
+                                            </HTTPSessionObj:Domain_Name>
+                                            <HTTPSessionObj:Port xsi:type="PortObj:PortObjectType">
+                                                <PortObj:Port_Value>80</PortObj:Port_Value>
+                                            </HTTPSessionObj:Port>
+                                        </HTTPSessionObj:Host>
+                                    </HTTPSessionObj:Parsed_Header>
+                                </HTTPSessionObj:HTTP_Request_Header>
+                            </HTTPSessionObj:HTTP_Client_Request>
+                        </HTTPSessionObj:HTTP_Request_Response>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.226160+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-9d75892c-ff95-4dff-93a6-5742186ff81d" timestamp="2016-03-15T14:10:51.227798+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>UDP connection</indicator:Title>
+            <indicator:Description>An indicator containing information about a UDP connection</indicator:Description>
+            <indicator:Observable id="example:Observable-9ec18c80-ae10-485e-8df4-d70dfa014505">
+                <cybox:Object id="example:NetworkConnection-cb22e860-7bb3-4ec7-8008-d12b8446247f">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>UDP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Source_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>146.231.133.139</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>1900</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>UDP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Source_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.228024+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-95367c54-54c6-4dfe-8b62-53829e9b500f" timestamp="2016-03-15T14:10:51.229520+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>UDP connection</indicator:Title>
+            <indicator:Description>An indicator containing information about a UDP connection</indicator:Description>
+            <indicator:Observable id="example:Observable-a05f735a-f189-42c4-8be6-4461fcf1e2ae">
+                <cybox:Object id="example:NetworkConnection-8f6a4d34-e5aa-4add-827f-dee88deaf227">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>UDP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Source_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>146.231.133.150</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>138</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>UDP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Source_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.229739+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+        <stix:Indicator id="example:indicator-7aee1c3e-d958-4ba9-96e8-47492157fc84" timestamp="2016-03-15T14:10:51.231204+00:00" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>UDP connection</indicator:Title>
+            <indicator:Description>An indicator containing information about a UDP connection</indicator:Description>
+            <indicator:Observable id="example:Observable-7dbe940d-eb3d-4964-bebc-68c084a0e202">
+                <cybox:Object id="example:NetworkConnection-83a4f5e4-457f-40be-ae86-9c365dafc826">
+                    <cybox:Properties xsi:type="NetworkConnectionObj:NetworkConnectionObjectType">
+                        <NetworkConnectionObj:Layer3_Protocol>IPv4</NetworkConnectionObj:Layer3_Protocol>
+                        <NetworkConnectionObj:Layer4_Protocol>UDP</NetworkConnectionObj:Layer4_Protocol>
+                        <NetworkConnectionObj:Source_Socket_Address xsi:type="SocketAddressObj:SocketAddressObjectType">
+                            <SocketAddressObj:IP_Address xsi:type="AddressObj:AddressObjectType">
+                                <AddressObj:Address_Value>146.231.133.150</AddressObj:Address_Value>
+                            </SocketAddressObj:IP_Address>
+                            <SocketAddressObj:Port xsi:type="PortObj:PortObjectType">
+                                <PortObj:Port_Value>137</PortObj:Port_Value>
+                                <PortObj:Layer4_Protocol>UDP</PortObj:Layer4_Protocol>
+                            </SocketAddressObj:Port>
+                        </NetworkConnectionObj:Source_Socket_Address>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Producer>
+                <stixCommon:Time>
+                    <cyboxCommon:Produced_Time>2016-03-15T14:10:51.231583+00:00</cyboxCommon:Produced_Time>
+                </stixCommon:Time>
+            </indicator:Producer>
+        </stix:Indicator>
+    </stix:Indicators>
+    <stix:Reports>
+        <stix:Report timestamp="2016-03-15T14:10:51.204795+00:00" id="example:Report-5ab3619f-0366-4f51-b7a6-9dd91d09d104" xsi:type='report:ReportType' version="1.0">
+            <report:Header>
+                <report:Title>A bunch of related indicators</report:Title>
+                <report:Short_Description>A short description for the indicators oooooh!</report:Short_Description>
+                <report:Information_Source>
+                    <stixCommon:Description>From Cuckoo sandbox IOC_STIX reporting module</stixCommon:Description>
+                </report:Information_Source>
+            </report:Header>
+            <report:Indicators>
+                <report:Indicator idref="example:indicator-f6c5eea0-af7f-4c28-9c5f-cf64155e5feb" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-c28cb6d1-f8ad-4edb-b842-6791b83fd460" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-9c3d6809-ea37-4951-bc24-255461e6a5cd" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-cd891670-799a-480d-bcd8-890221721a78" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-7de7dae6-81b9-403e-a2c0-5b8107aeb9f0" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-d35b1688-fd06-47fb-9074-2a036ffc1897" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-b96f06fe-71dd-4206-a8fb-869c57e81ee6" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-91331757-784d-4e41-818a-96ba9502f736" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-e94ee365-dcf1-40e8-ac0a-a89de41f85d5" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-934e2c1e-ae28-4a0b-b019-0e9a64a6f518" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-99771139-45f9-464c-b43b-8ad5b0f38638" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-599016f7-1897-4402-8aa0-ce23f9965002" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-c7dce3eb-ace3-45af-8c86-214c42b4c39f" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-f0c83fac-e905-49f9-9bf3-a7444afd9b79" xsi:type='indicator:IndicatorType'/>
+                <report:Indicator idref="example:indicator-0ee37288-5917-488b-acd3-a274d7e5e503" xsi:type='indicator:IndicatorType'/>
+            </report:Indicators>
+        </stix:Report>
+    </stix:Reports>
+</stix:STIX_Package>

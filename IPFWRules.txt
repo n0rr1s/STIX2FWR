@@ -1,2 +1,8 @@
-add 1000 30 deny ip from any any to 88.221.251.80 443
-add 1000 30 deny ip from any any to 196.24.45.72 80
+add 1000 30 reject tcp from any any to 65.55.113.13 80
+add 1000 30 reject tcp from any any to 88.221.251.80 443
+add 1000 30 reject tcp from any any to 195.22.28.199 80
+add 1000 30 reject tcp from any any to 196.24.45.72 80
+add 1000 30 reject tcp from any any to 208.100.26.234 80
+add 1000 30 reject tcp from any any to 207.148.248.143 80
+add 1000 30 reject tcp from any any to 141.8.225.226 80
+add 1000 30 reject tcp from any any to 52.71.117.99 80
