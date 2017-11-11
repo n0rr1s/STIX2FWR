@@ -2,8 +2,6 @@
 # created by Lauren Rudman
 # Takes a STIX IOC and generates Snort, IPFW, iptables and more
 
-# should it only block IPs if they are hard coded into the source code ??????????????????
-
 # python-stix
 from stix.core import STIXPackage
 
